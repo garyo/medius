@@ -4,21 +4,20 @@
 <div class="page-container">
     <div class="article-header-container">
         <div class="background-image-container">
-
             {# title with big background image #}
             {% if page.image %}
-            <div class="background-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ page.image }});">
-                <img src="{{ page.image }}" alt="{{ page.title|striptags }}">
-                <div class="title">
-                <h1>
-                    {{ page.title }}
-                </h1>
+            <div class="background-image" style="background-image: url({{ page.image }});">
+	      {# see image_process plugin and IMAGE_PROCESS config dict #}
+              <img class="image-process-large-photo"
+		   src="{{ page.image }}" alt="{{ page.title|striptags }}">
+		{% if not page.hide_title %}
+                <div class="title" style="top: {{page.title_position|default('50%')}};">
+                <h1> {{ page.title }} </h1>
                 {% if page.subtitle %}
-                <h2>
-                    {{ page.subtitle }}
-                </h2>
+                <h2> {{ page.subtitle }} </h2>
                 {% endif %}
                 </div>
+		{% endif %}
             </div>
             {% else %}
             <div class="background-image-small">
@@ -48,6 +47,7 @@
             {% endfor %}
         </div>
         {% endif %}
+	<!---
         <div class="pure-g post-footer">
             {% if page.authors %}
             <div class="pure-u-1">
@@ -72,7 +72,7 @@
             {% endif %}
 
         </div>
-
+	--->
 
     </footer>
 
