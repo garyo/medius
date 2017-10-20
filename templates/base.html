@@ -33,6 +33,22 @@
         {% if TAG_FEED_RSS and tag %}
         <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
         {% endif %}
+	{% if article %}
+	  {% if article.stylesheets %}
+            <!--- per-article CSS --->
+	    {% for stylesheet in article.stylesheets %}
+	       {{ stylesheet }}
+	    {% endfor %}
+	  {% endif %}
+	{% endif %}
+	{% if page %}
+	  {% if page.stylesheets %}
+            <!--- per-page CSS --->
+	    {% for stylesheet in page.stylesheets %}
+	       {{ stylesheet }}
+	    {% endfor %}
+	  {% endif %}
+	{% endif %}
         {% endblock head %}
 </head>
 <body>
@@ -87,4 +103,20 @@
 
     {% include "analytics.html" %}
 </body>
+{% if article %}
+  {% if article.javascripts %}
+    <!--- per-article javascript --->
+    {% for javascript in article.javascripts %}
+      {{ javascript }}
+    {% endfor %}
+  {% endif %}
+{% endif %}
+{% if page %}
+  {% if page.javascripts %}
+    <!--- per-page javascript --->
+    {% for javascript in page.javascripts %}
+      {{ javascript }}
+    {% endfor %}
+  {% endif %}
+{% endif %}
 </html>

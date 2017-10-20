@@ -63,8 +63,10 @@ div.post-content, div.entry-content {
 
 div.navigation {
   text-align: left;
-  max-width: 1000px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-left: 30px;
+  background-color: black;
+  color: white; }
 
 div.main-container {
   padding: 5px;
@@ -178,7 +180,7 @@ div.post-meta div.meta-data {
 
 div.page-container {
   text-align: center;
-  margin-top: 80px; }
+  margin-top: 0px; }
   div.page-container div.entry-content {
     max-width: 700px;
     margin: 0 auto;

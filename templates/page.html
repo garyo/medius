@@ -2,16 +2,17 @@
 {% block title %}{{ page.title|striptags }}{% endblock %}
 {% block content %}
 <div class="page-container">
+    {% if not page.hide_header %}
     <div class="article-header-container">
         <div class="background-image-container">
             {# title with big background image #}
             {% if page.image %}
-            <div class="background-image" style="background-image: url({{ page.image }});">
+            <div data-responsive-background-image>
 	      {# see image_process plugin and IMAGE_PROCESS config dict #}
               <img class="image-process-large-photo"
 		   src="{{ page.image }}" alt="{{ page.title|striptags }}">
 		{% if not page.hide_title %}
-                <div class="title" style="top: {{page.title_position|default('50%')}};">
+                <div class="title" style="color: white; font-size: xx-large; top: {{page.title_position|default('50%')}};">
                 <h1> {{ page.title }} </h1>
                 {% if page.subtitle %}
                 <h2> {{ page.subtitle }} </h2>
@@ -34,6 +35,7 @@
             {% endif %}
         </div>
     </div>
+    {% endif %}
 
     <div class="entry-content">
         {{ page.content }}

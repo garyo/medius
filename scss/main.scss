@@ -113,8 +113,12 @@ div.post-content, div.entry-content {
 
 div.navigation {
     text-align: left;
-    max-width: 1000px;
+    // max-width: 1000px;
     margin: 0 auto;
+    padding-left: 30px;
+    // black nav theme
+    background-color: black;
+    color: white;
 }
 
 
@@ -311,7 +315,7 @@ div.post-meta {
 
 div.page-container {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 0px;
 
     div.entry-content {
         max-width: 700px;
